@@ -1,14 +1,17 @@
 from flask import Flask, request, redirect, session
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 app = Flask(__name__)
 app.secret_key = "logan_secret"
 
-# Database
+# DATABASE (Railway safe)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 db = SQLAlchemy(app)
 
-# Models
+# ================= MODELS =================
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
@@ -25,7 +28,7 @@ class Account(db.Model):
 with app.app_context():
     db.create_all()
 
-# HOME
+# ================= HOME =================
 @app.route('/')
 def home():
     accounts = Account.query.all()
@@ -59,28 +62,30 @@ def home():
     }}
 
     h1 {{
-        font-size:50px;
+        font-size:55px;
         color:#00ffc3;
-        text-shadow:0 0 20px #00ffc3;
+        text-shadow:0 0 25px #00ffc3;
+        margin-top:40px;
     }}
 
     .card {{
-        background:rgba(0,0,0,0.6);
+        background:rgba(0,0,0,0.65);
         margin:20px;
         padding:20px;
         border-radius:15px;
     }}
 
     button {{
-        padding:10px 20px;
+        padding:12px 25px;
         background:#00ffc3;
         border:none;
         border-radius:10px;
         cursor:pointer;
+        font-weight:bold;
     }}
 
     .top {{
-        margin-top:40px;
+        margin-top:20px;
     }}
 
     a {{
@@ -95,8 +100,9 @@ def home():
     <p>Buy • Sell • Trade • Exchange eFootball Accounts</p>
 
     <div class="top">
-        <a href="/login">Login</a> | 
-        <a href="/register">Register</a>
+        <a href="/login">Login</a> |
+        <a href="/register">Register</a> |
+        <a href="/admin">Admin</a>
     </div>
 
     {items}
@@ -105,7 +111,7 @@ def home():
     </html>
     """
 
-# REGISTER
+# ================= REGISTER =================
 @app.route('/register', methods=['GET','POST'])
 def register():
     if request.method == 'POST':
@@ -121,14 +127,14 @@ def register():
     return """
     <h2>Register</h2>
     <form method="post">
-        <input name="name" placeholder="Name"><br>
-        <input name="email" placeholder="Email"><br>
-        <input name="password" placeholder="Password"><br>
+        <input name="name" placeholder="Name"><br><br>
+        <input name="email" placeholder="Email"><br><br>
+        <input name="password" placeholder="Password"><br><br>
         <button>Register</button>
     </form>
     """
 
-# LOGIN
+# ================= LOGIN =================
 @app.route('/login', methods=['GET','POST'])
 def login():
     if request.method == 'POST':
@@ -144,13 +150,13 @@ def login():
     return """
     <h2>Login</h2>
     <form method="post">
-        <input name="email"><br>
-        <input name="password"><br>
+        <input name="email"><br><br>
+        <input name="password"><br><br>
         <button>Login</button>
     </form>
     """
 
-# ADMIN PANEL
+# ================= ADMIN =================
 @app.route('/admin', methods=['GET','POST'])
 def admin():
     if 'user' not in session or session['user'] != "admin@gmail.com":
@@ -169,19 +175,20 @@ def admin():
     return """
     <h2>Admin Panel 👑</h2>
     <form method="post">
-        <input name="name" placeholder="Account Name"><br>
-        <input name="price" placeholder="Price"><br>
-        <input name="desc" placeholder="Description"><br>
+        <input name="name" placeholder="Account Name"><br><br>
+        <input name="price" placeholder="Price"><br><br>
+        <input name="desc" placeholder="Description"><br><br>
         <button>Add</button>
     </form>
     """
 
-# LOGOUT
+# ================= LOGOUT =================
 @app.route('/logout')
 def logout():
     session.pop('user', None)
     return redirect('/')
 
-# RUN
+# ================= RUN (FIXED FOR RAILWAY) =================
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=3000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
