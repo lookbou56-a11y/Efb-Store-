@@ -75,7 +75,7 @@ body {
         Join WhatsApp Group 🚀
     </a>
 
-    <a class="btn contact" href="https://wa.me/232887935222?text=Hello 🤍, I came across your EFB Store 🩵 and I’m really interested 🤗. Could you guide me?">
+    <a class="btn contact" href="https://wa.me/231887935222?text=Hello 🤍, I came across your EFB Store 🩵 and I’m really interested 🤗. Could you guide me?">
         Contact Admin 💬
     </a>
 </div>
@@ -87,7 +87,7 @@ body {
         <h3>Pro Account 🔥</h3>
         <p>High rated squad</p>
         <h2>$10</h2>
-        <a class="btn whatsapp" href="https://wa.me/232887935222?text=I want to buy Pro Account">
+        <a class="btn whatsapp" href="https://wa.me/231887935222?text=I want to buy Pro Account">
             Buy via WhatsApp 💬
         </a>
     </div>
@@ -96,7 +96,7 @@ body {
         <h3>Starter Account ⚽</h3>
         <p>Good for beginners</p>
         <h2>$5</h2>
-        <a class="btn whatsapp" href="https://wa.me/232887935222?text=I want to buy Starter Account">
+        <a class="btn whatsapp" href="https://wa.me/231887935222?text=I want to buy Starter Account">
             Buy via WhatsApp 💬
         </a>
     </div>
@@ -105,7 +105,7 @@ body {
         <h3>Coins Package 🪙</h3>
         <p>Cheap eFootball coins</p>
         <h2>$2+</h2>
-        <a class="btn whatsapp" href="https://wa.me/232887935222?text=I want to buy coins">
+        <a class="btn whatsapp" href="https://wa.me/231887935222?text=I want to buy coins">
             Buy Coins 💬
         </a>
     </div>
