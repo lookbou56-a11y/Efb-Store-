@@ -1,119 +1,150 @@
-from flask import Flask, request, redirect
+from flask import Flask, render_template_string
 
 app = Flask(__name__)
 
-# Temporary storage
-accounts = [
-    {"name": "Pro Account 🔥", "price": "$10", "desc": "High rated squad"},
-    {"name": "Starter Account ⚽", "price": "$5", "desc": "Good for beginners"}
-]
+html = """
+<!DOCTYPE html>
+<html>
+<head>
+<title>LOGAN EFB STORE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-@app.route('/')
-def home():
-    items_html = ""
-    for acc in accounts:
-        msg = "Hello 🤍, I’m interested in {} ({}) 🩵".format(acc['name'], acc['price'])
-        whatsapp_link = f"https://wa.me/231887935222?text={msg}"
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+    text-align: center;
+}
 
-        items_html += f"""
-        <div class="card">
-            <h3>{acc['name']}</h3>
-            <p>{acc['desc']}</p>
-            <h2>{acc['price']}</h2>
-            <a href="{whatsapp_link}" target="_blank">
-                <button>Buy via WhatsApp 💬</button>
-            </a>
-        </div>
-        """
+/* HERO SECTION */
+.hero {
+    padding: 80px 20px;
+}
 
-    return f'''
-    <html>
-    <head>
-    <title>LOGAN EFB STORE</title>
+.hero h1 {
+    font-size: 50px;
+    color: #00ffd5;
+    text-shadow: 0 0 20px #00ffd5;
+}
 
-    <style>
-    body {{
-        margin:0;
-        font-family: Arial;
-        background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-        color:white;
-        text-align:center;
-    }}
+/* BUTTONS */
+.btn {
+    display: inline-block;
+    padding: 15px 25px;
+    margin: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-    h1 {{
-        font-size: 40px;
-        margin-top: 20px;
-        color: #00ffc3;
-    }}
+.whatsapp {
+    background: #25D366;
+    color: white;
+}
 
-    .container {{
-        padding: 20px;
-    }}
+.group {
+    background: #128C7E;
+    color: white;
+}
 
-    .card {{
-        background: rgba(255,255,255,0.05);
-        margin: 15px;
-        padding: 20px;
-        border-radius: 15px;
-        box-shadow: 0 0 15px rgba(0,255,200,0.3);
-    }}
+.contact {
+    background: #007bff;
+    color: white;
+}
 
-    button {{
-        padding: 10px 20px;
-        border:none;
-        border-radius:10px;
-        background:#00ffc3;
-        font-weight:bold;
-        cursor:pointer;
-    }}
+/* CARDS */
+.card {
+    background: rgba(255,255,255,0.05);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+}
 
-    button:hover {{
-        background:#00cfa0;
-    }}
+/* SECTION */
+.section {
+    padding: 40px 20px;
+}
+</style>
+</head>
 
-    .admin {{
-        margin-top: 30px;
-    }}
-    </style>
+<body>
 
-    </head>
-
-    <body>
-
+<div class="hero">
     <h1>🔥 LOGAN EFB STORE 🔥</h1>
-    <p>Buy • Sell • Trade • Exchange Accounts</p>
+    <p>Buy • Sell • Trade • Exchange eFootball Accounts</p>
 
-    <div class="container">
-        {items_html}
+    <!-- JOIN GROUP BUTTON -->
+    <a class="btn group" href="https://chat.whatsapp.com/FnWdfggfsAgJbwDWhwIZuk?mode=gi_t">
+        Join WhatsApp Group 🚀
+    </a>
+
+    <!-- CONTACT ADMIN -->
+    <a class="btn contact" href="https://wa.me/231771896734?text=Hello 🤍, I came across your EFB Store 🩵 and I’m really interested 🤗. Could you guide me?">
+        Contact Admin 💬
+    </a>
+</div>
+
+<!-- PRODUCTS -->
+<div class="section">
+    <h2>💰 Our Products</h2>
+
+    <div class="card">
+        <h3>Pro Account 🔥</h3>
+        <p>High rated squad</p>
+        <h2>$10</h2>
+        <a class="btn whatsapp" href="https://wa.me/231771896734?text=I want to buy Pro Account">
+            Buy via WhatsApp 💬
+        </a>
     </div>
 
-    <div class="admin">
-        <h2>Admin Panel</h2>
-        <form action="/add" method="post">
-            <input name="name" placeholder="Account Name"><br><br>
-            <input name="price" placeholder="Price"><br><br>
-            <input name="desc" placeholder="Description"><br><br>
-            <button type="submit">Add Account</button>
-        </form>
+    <div class="card">
+        <h3>Starter Account ⚽</h3>
+        <p>Good for beginners</p>
+        <h2>$5</h2>
+        <a class="btn whatsapp" href="https://wa.me/231771896734?text=I want to buy Starter Account">
+            Buy via WhatsApp 💬
+        </a>
     </div>
 
-    </body>
-    </html>
-    '''
+    <div class="card">
+        <h3>Coins Package 🪙</h3>
+        <p>Cheap eFootball coins</p>
+        <h2>$2+</h2>
+        <a class="btn whatsapp" href="https://wa.me/231771896734?text=I want to buy coins">
+            Buy Coins 💬
+        </a>
+    </div>
+</div>
 
-@app.route('/add', methods=['POST'])
-def add():
-    name = request.form['name']
-    price = request.form['price']
-    desc = request.form['desc']
+<!-- ABOUT -->
+<div class="section">
+    <h2>⚽ ABOUT US</h2>
+    <p>🏆 Active eFootball trading market</p>
+    <p>👥 Friendly and active members</p>
+    <p>⚡ Fast response from admins</p>
+    <p>🛡️ Safe marketplace for everyone</p>
+</div>
 
-    accounts.append({
-        "name": name,
-        "price": price,
-        "desc": desc
-    })
+<!-- SERVICES -->
+<div class="section">
+    <h2>🔥 WHAT WE OFFER</h2>
+    <p>🪙 Cheap eFootball coins</p>
+    <p>👤 Buy • Sell • Swap accounts</p>
+    <p>⚡ Instant delivery</p>
+    <p>🛡️ Safe and trusted deals</p>
+</div>
 
-    return redirect('/')
+</body>
+</html>
+"""
+
+@app.route("/")
+def home():
+    return render_template_string(html)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=3000)
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
