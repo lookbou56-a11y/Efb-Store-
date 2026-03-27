@@ -8,37 +8,41 @@ def home():
     <html>
     <head>
         <title>Logan EFB Store</title>
+
         <style>
             body {
                 margin: 0;
-                font-family: Arial, sans-serif;
-                background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+                font-family: 'Segoe UI', sans-serif;
+                background: linear-gradient(135deg, #0a0f1f, #111827, #1f2937);
                 color: white;
                 text-align: center;
             }
 
             h1 {
-                font-size: 65px;
+                font-size: 75px;
                 margin-top: 80px;
+                font-weight: 900;
+                letter-spacing: 2px;
                 color: #00ffc3;
-                text-shadow: 0 0 20px #00ffc3;
+                text-shadow: 0 0 25px #00ffc3, 0 0 40px rgba(0,255,195,0.4);
             }
 
             p {
                 font-size: 20px;
-                color: #ccc;
+                color: #cbd5e1;
+                margin-bottom: 30px;
             }
 
             .btn {
                 display: inline-block;
-                margin: 15px;
+                margin: 10px;
                 padding: 15px 30px;
                 font-size: 18px;
-                border-radius: 10px;
+                border-radius: 12px;
                 text-decoration: none;
                 color: white;
                 transition: 0.3s;
-                box-shadow: 0 0 10px rgba(0,0,0,0.3);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.4);
             }
 
             .whatsapp {
@@ -46,29 +50,32 @@ def home():
             }
 
             .admin {
-                background: #0084ff;
+                background: #3b82f6;
             }
 
             .btn:hover {
-                opacity: 0.8;
+                transform: scale(1.05);
+                opacity: 0.9;
             }
 
             .services {
-                margin-top: 60px;
+                margin-top: 70px;
             }
 
             .services h2 {
-                font-size: 28px;
+                font-size: 30px;
                 margin-bottom: 20px;
+                color: #facc15;
             }
 
             .card {
-                background: #111;
-                margin: 15px auto;
+                background: rgba(255,255,255,0.05);
+                margin: 12px auto;
                 padding: 15px;
                 width: 80%;
-                border-radius: 12px;
-                box-shadow: 0 0 15px rgba(0,255,195,0.2);
+                border-radius: 14px;
+                backdrop-filter: blur(10px);
+                box-shadow: 0 0 20px rgba(0,255,195,0.1);
                 font-size: 18px;
             }
 
@@ -78,7 +85,7 @@ def home():
     <body>
 
         <h1>🔥 LOGAN EFB STORE 🔥</h1>
-        <p>Buy • Sell • Trade eFootball Accounts</p>
+        <p>Buy • Sell • Trade • Exchange eFootball Accounts</p>
 
         <!-- Buttons -->
         <a class="btn whatsapp" href="https://chat.whatsapp.com/FnWdfggfsAgJbwDWhwIZuk">
@@ -91,13 +98,14 @@ def home():
             Contact Admin 💬
         </a>
 
-        <!-- Services Section -->
+        <!-- Services -->
         <div class="services">
             <h2>💰 Our Services</h2>
 
             <div class="card">✔ Buy Accounts</div>
             <div class="card">✔ Sell Accounts</div>
             <div class="card">✔ Safe Trading</div>
+            <div class="card">🔄 Exchange Accounts</div>
         </div>
 
     </body>
