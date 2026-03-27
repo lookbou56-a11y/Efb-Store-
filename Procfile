@@ -1,1 +1,1 @@
-web: gunicorn Logan:app
+web: gunicorn logan:app
