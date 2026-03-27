@@ -18,7 +18,6 @@ body {
     text-align: center;
 }
 
-/* HERO SECTION */
 .hero {
     padding: 80px 20px;
 }
@@ -29,7 +28,6 @@ body {
     text-shadow: 0 0 20px #00ffd5;
 }
 
-/* BUTTONS */
 .btn {
     display: inline-block;
     padding: 15px 25px;
@@ -54,7 +52,6 @@ body {
     color: white;
 }
 
-/* CARDS */
 .card {
     background: rgba(255,255,255,0.05);
     margin: 20px;
@@ -62,7 +59,6 @@ body {
     border-radius: 15px;
 }
 
-/* SECTION */
 .section {
     padding: 40px 20px;
 }
@@ -75,18 +71,15 @@ body {
     <h1>🔥 LOGAN EFB STORE 🔥</h1>
     <p>Buy • Sell • Trade • Exchange eFootball Accounts</p>
 
-    <!-- JOIN GROUP BUTTON -->
     <a class="btn group" href="https://chat.whatsapp.com/FnWdfggfsAgJbwDWhwIZuk?mode=gi_t">
         Join WhatsApp Group 🚀
     </a>
 
-    <!-- CONTACT ADMIN -->
-    <a class="btn contact" href="https://wa.me/231771896734?text=Hello 🤍, I came across your EFB Store 🩵 and I’m really interested 🤗. Could you guide me?">
+    <a class="btn contact" href="https://wa.me/232887935222?text=Hello 🤍, I came across your EFB Store 🩵 and I’m really interested 🤗. Could you guide me?">
         Contact Admin 💬
     </a>
 </div>
 
-<!-- PRODUCTS -->
 <div class="section">
     <h2>💰 Our Products</h2>
 
@@ -94,7 +87,7 @@ body {
         <h3>Pro Account 🔥</h3>
         <p>High rated squad</p>
         <h2>$10</h2>
-        <a class="btn whatsapp" href="https://wa.me/231771896734?text=I want to buy Pro Account">
+        <a class="btn whatsapp" href="https://wa.me/232887935222?text=I want to buy Pro Account">
             Buy via WhatsApp 💬
         </a>
     </div>
@@ -103,7 +96,7 @@ body {
         <h3>Starter Account ⚽</h3>
         <p>Good for beginners</p>
         <h2>$5</h2>
-        <a class="btn whatsapp" href="https://wa.me/231771896734?text=I want to buy Starter Account">
+        <a class="btn whatsapp" href="https://wa.me/232887935222?text=I want to buy Starter Account">
             Buy via WhatsApp 💬
         </a>
     </div>
@@ -112,13 +105,12 @@ body {
         <h3>Coins Package 🪙</h3>
         <p>Cheap eFootball coins</p>
         <h2>$2+</h2>
-        <a class="btn whatsapp" href="https://wa.me/231771896734?text=I want to buy coins">
+        <a class="btn whatsapp" href="https://wa.me/232887935222?text=I want to buy coins">
             Buy Coins 💬
         </a>
     </div>
 </div>
 
-<!-- ABOUT -->
 <div class="section">
     <h2>⚽ ABOUT US</h2>
     <p>🏆 Active eFootball trading market</p>
@@ -127,7 +119,6 @@ body {
     <p>🛡️ Safe marketplace for everyone</p>
 </div>
 
-<!-- SERVICES -->
 <div class="section">
     <h2>🔥 WHAT WE OFFER</h2>
     <p>🪙 Cheap eFootball coins</p>
