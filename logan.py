@@ -18,13 +18,14 @@ def home():
             }
 
             h1 {
-                font-size: 50px;
-                margin-top: 100px;
+                font-size: 65px;
+                margin-top: 80px;
                 color: #00ffc3;
+                text-shadow: 0 0 20px #00ffc3;
             }
 
             p {
-                font-size: 18px;
+                font-size: 20px;
                 color: #ccc;
             }
 
@@ -37,6 +38,7 @@ def home():
                 text-decoration: none;
                 color: white;
                 transition: 0.3s;
+                box-shadow: 0 0 10px rgba(0,0,0,0.3);
             }
 
             .whatsapp {
@@ -50,6 +52,26 @@ def home():
             .btn:hover {
                 opacity: 0.8;
             }
+
+            .services {
+                margin-top: 60px;
+            }
+
+            .services h2 {
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
+
+            .card {
+                background: #111;
+                margin: 15px auto;
+                padding: 15px;
+                width: 80%;
+                border-radius: 12px;
+                box-shadow: 0 0 15px rgba(0,255,195,0.2);
+                font-size: 18px;
+            }
+
         </style>
     </head>
 
@@ -58,17 +80,25 @@ def home():
         <h1>🔥 LOGAN EFB STORE 🔥</h1>
         <p>Buy • Sell • Trade eFootball Accounts</p>
 
-        <!-- WhatsApp Group -->
+        <!-- Buttons -->
         <a class="btn whatsapp" href="https://chat.whatsapp.com/FnWdfggfsAgJbwDWhwIZuk">
             Join WhatsApp Group 🚀
         </a>
 
         <br>
 
-        <!-- Admin Contact -->
         <a class="btn admin" href="https://wa.me/231887935222?text=Hi%20I%20saw%20your%20store%20and%20I%E2%80%99m%20interested%20in%20your%20services.%20Can%20you%20guide%20me%20on%20how%20to%20proceed%3F">
             Contact Admin 💬
         </a>
+
+        <!-- Services Section -->
+        <div class="services">
+            <h2>💰 Our Services</h2>
+
+            <div class="card">✔ Buy Accounts</div>
+            <div class="card">✔ Sell Accounts</div>
+            <div class="card">✔ Safe Trading</div>
+        </div>
 
     </body>
     </html>
