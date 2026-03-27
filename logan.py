@@ -2,115 +2,104 @@ from flask import Flask
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route("/")
 def home():
-    return '''
+    return """
     <html>
     <head>
-        <title>Logan EFB Store</title>
+    <title>LOGAN EFB STORE</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+            background: linear-gradient(135deg, #0f2027, #203a43, #000000);
+        }
 
-        <style>
-            body {
-                margin: 0;
-                font-family: 'Segoe UI', sans-serif;
-                background: linear-gradient(135deg, #0a0f1f, #111827, #1f2937);
-                color: white;
-                text-align: center;
-            }
+        .container {
+            padding: 40px 20px;
+        }
 
-            h1 {
-                font-size: 75px;
-                margin-top: 80px;
-                font-weight: 900;
-                letter-spacing: 2px;
-                color: #00ffc3;
-                text-shadow: 0 0 25px #00ffc3, 0 0 40px rgba(0,255,195,0.4);
-            }
+        h1 {
+            font-size: 60px;
+            font-weight: bold;
+            color: #00ffcc;
+            text-shadow: 0 0 25px #00ffcc;
+            margin-bottom: 10px;
+        }
 
-            p {
-                font-size: 20px;
-                color: #cbd5e1;
-                margin-bottom: 30px;
-            }
+        p {
+            font-size: 20px;
+            color: #ccc;
+        }
 
-            .btn {
-                display: inline-block;
-                margin: 10px;
-                padding: 15px 30px;
-                font-size: 18px;
-                border-radius: 12px;
-                text-decoration: none;
-                color: white;
-                transition: 0.3s;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-            }
+        .btn {
+            display: inline-block;
+            margin: 15px;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
 
-            .whatsapp {
-                background: #25D366;
-            }
+        .whatsapp {
+            background: #25D366;
+            color: white;
+        }
 
-            .admin {
-                background: #3b82f6;
-            }
+        .contact {
+            background: #007bff;
+            color: white;
+        }
 
-            .btn:hover {
-                transform: scale(1.05);
-                opacity: 0.9;
-            }
+        h2 {
+            margin-top: 50px;
+            font-size: 28px;
+        }
 
-            .services {
-                margin-top: 70px;
-            }
+        .service {
+            width: 90%;
+            margin: 15px auto;
+            padding: 20px;
+            background: #111;
+            border-radius: 12px;
+            font-size: 20px;
+            box-shadow: 0 0 15px rgba(0,255,204,0.3);
+        }
 
-            .services h2 {
-                font-size: 30px;
-                margin-bottom: 20px;
-                color: #facc15;
-            }
-
-            .card {
-                background: rgba(255,255,255,0.05);
-                margin: 12px auto;
-                padding: 15px;
-                width: 80%;
-                border-radius: 14px;
-                backdrop-filter: blur(10px);
-                box-shadow: 0 0 20px rgba(0,255,195,0.1);
-                font-size: 18px;
-            }
-
-        </style>
+    </style>
     </head>
 
     <body>
 
+    <div class="container">
         <h1>🔥 LOGAN EFB STORE 🔥</h1>
         <p>Buy • Sell • Trade • Exchange eFootball Accounts</p>
 
-        <!-- Buttons -->
         <a class="btn whatsapp" href="https://chat.whatsapp.com/FnWdfggfsAgJbwDWhwIZuk">
-            Join WhatsApp Group 🚀
+            Join WhatsApp 🚀
         </a>
 
         <br>
 
-        <a class="btn admin" href="https://wa.me/231887935222?text=Hi%20I%20saw%20your%20store%20and%20I%E2%80%99m%20interested%20in%20your%20services.%20Can%20you%20guide%20me%20on%20how%20to%20proceed%3F">
+        <a class="btn contact" href="https://wa.me/231887935222?text=Hi%20I%20saw%20your%20store%20and%20I%E2%80%99m%20interested%20in%20your%20services.%20Can%20you%20guide%20me%20on%20how%20to%20proceed%3F">
             Contact Admin 💬
         </a>
 
-        <!-- Services -->
-        <div class="services">
-            <h2>💰 Our Services</h2>
+        <h2>💰 Our Services</h2>
 
-            <div class="card">✔ Buy Accounts</div>
-            <div class="card">✔ Sell Accounts</div>
-            <div class="card">✔ Safe Trading</div>
-            <div class="card">🔄 Exchange Accounts</div>
-        </div>
+        <div class="service">✔ Buy Accounts</div>
+        <div class="service">✔ Sell Accounts</div>
+        <div class="service">✔ Safe Trading</div>
+        <div class="service">🔄 Exchange Accounts</div>
+
+    </div>
 
     </body>
     </html>
-    '''
+    """
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=3000)
