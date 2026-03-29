@@ -1,137 +1,178 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Logan Digital Services</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LOGAN DIGITAL SERVICES</title>
 
 <style>
 body {
     margin: 0;
     font-family: Arial;
-    background: #0f2027;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
     color: white;
     text-align: center;
 }
 
-/* NAV */
-.nav {
-    background: #00ffcc;
-    color: black;
+header {
+    background: #00d4a3;
     padding: 15px;
     font-weight: bold;
+    font-size: 18px;
 }
 
-/* HERO */
-.hero {
-    padding: 40px;
-    animation: fade 1.5s;
+.container {
+    padding: 20px;
 }
 
-/* BUTTON */
 .btn {
     background: #25D366;
-    padding: 15px;
-    border-radius: 8px;
-    text-decoration: none;
     color: white;
-    display: inline-block;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    margin: 15px 0;
+    width: 80%;
+}
+
+.services {
     margin-top: 20px;
 }
 
-/* CARDS */
-.card {
+.service-box {
     background: #111;
     margin: 10px auto;
     padding: 15px;
+    width: 80%;
     border-radius: 10px;
-    max-width: 300px;
 }
 
-/* FORM */
 input, select {
     width: 80%;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
+    padding: 12px;
+    margin: 8px;
+    border-radius: 8px;
     border: none;
 }
 
-/* ANIMATION */
-@keyframes fade {
-    from {opacity: 0;}
-    to {opacity: 1;}
+.order-btn {
+    background: orange;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    width: 80%;
+    font-size: 16px;
 }
 
-/* POPUP */
-#popup {
+/* Popup */
+.popup {
     position: fixed;
-    bottom: 10px;
-    left: 10px;
-    background: #25D366;
-    padding: 10px;
+    bottom: 20px;
+    left: 20px;
+    background: #111;
+    padding: 10px 15px;
     border-radius: 8px;
     display: none;
+    font-size: 14px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="nav">🚀 LOGAN DIGITAL SERVICES</div>
+<header>🚀 LOGAN DIGITAL SERVICES</header>
 
-<div class="hero">
-<h2>Welcome to My Digital Store</h2>
+<div class="container">
+
+<h1>Welcome to My Digital Store</h1>
 <p>Fast • Trusted • Affordable</p>
 
-<a href="https://wa.me/231887935222" class="btn">💬 Chat on WhatsApp</a>
+<!-- WhatsApp Button -->
+<a href="https://wa.me/231887935222" target="_blank">
+<button class="btn">💬 Chat on WhatsApp</button>
+</a>
 
-<p>👀 Visitors: <span id="count">0</span></p>
+<!-- Visitors -->
+<p>👀 Visitors: <span id="visitors">2</span></p>
+
+<!-- Services -->
+<div class="services">
+    <h2>Our Services</h2>
+
+    <div class="service-box">🔥 Free Fire Top-up</div>
+    <div class="service-box">💻 Website Creation</div>
+    <div class="service-box">📱 Social Media Boost</div>
 </div>
 
-<h3>Our Services</h3>
+<!-- Order Form -->
+<h2>🛒 Place Order</h2>
 
-<div class="card">🔥 Free Fire Top-up</div>
-<div class="card">💻 Website Creation</div>
-<div class="card">📱 Social Media Boost</div>
+<input type="text" id="name" placeholder="Your Name">
+<input type="text" id="phone" placeholder="Your Phone">
 
-<h3>🛒 Place Order</h3>
+<select id="service">
+    <option value="">Select Service</option>
+    <option value="Free Fire Top-up">Free Fire Top-up</option>
+    <option value="Website Creation">Website Creation</option>
+    <option value="Social Media Boost">Social Media Boost</option>
+</select>
 
-<form>
-<input type="text" placeholder="Your Name"><br>
-<input type="text" placeholder="Your Phone"><br>
+<button class="order-btn" onclick="sendOrder()">Submit Order</button>
 
-<select>
-<option>Select Service</option>
-<option>Free Fire Top-up</option>
-<option>Website Creation</option>
-<option>Social Media Boost</option>
-</select><br>
+</div>
 
-<button class="btn">Submit Order</button>
-</form>
-
-<h3>💰 Payment Methods</h3>
-<p>Remitly</p>
-<p>Trust Wallet</p>
-<p>Mobile Money (MoMo)</p>
-<p>Ecobank</p>
-
-<div id="popup">🔥 Someone just ordered a service!</div>
+<!-- Fake Popup -->
+<div class="popup" id="popup"></div>
 
 <script>
-// Fake visitor counter
-let count = localStorage.getItem("visits") || 0;
-count++;
-localStorage.setItem("visits", count);
-document.getElementById("count").innerText = count;
+// WhatsApp Order
+function sendOrder() {
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let service = document.getElementById("service").value;
 
-// Fake live orders
-setInterval(()=>{
-    document.getElementById("popup").style.display = "block";
-    setTimeout(()=>{
-        document.getElementById("popup").style.display = "none";
+    if(name === "" || phone === "" || service === "") {
+        alert("Please fill all fields");
+        return;
+    }
+
+    let message = `Hello, I want to place an order:%0A
+Name: ${name}%0A
+Phone: ${phone}%0A
+Service: ${service}`;
+
+    let url = `https://wa.me/231887935222?text=${message}`;
+    window.open(url, "_blank");
+}
+
+// Visitor Counter
+let count = 2;
+
+setInterval(() => {
+    count += Math.floor(Math.random() * 2) + 1;
+    document.getElementById("visitors").innerText = count;
+}, 3000);
+
+// Fake Orders Popup
+let names = ["John", "Mary", "David", "Samuel", "Blessing"];
+let services = ["Free Fire Top-up", "Website Creation", "Social Boost"];
+
+setInterval(() => {
+    let popup = document.getElementById("popup");
+
+    let randomName = names[Math.floor(Math.random() * names.length)];
+    let randomService = services[Math.floor(Math.random() * services.length)];
+
+    popup.innerText = `${randomName} just ordered ${randomService}`;
+    popup.style.display = "block";
+
+    setTimeout(() => {
+        popup.style.display = "none";
     }, 3000);
-}, 8000);
+
+}, 5000);
 </script>
 
 </body>
