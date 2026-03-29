@@ -3,17 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LOGAN DIGITAL SERVICES</title>
+<title>Logan Digital Store</title>
 
 <style>
 body {
     margin: 0;
     font-family: Arial;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    background: linear-gradient(135deg, #000428, #004e92);
     color: white;
     text-align: center;
 }
 
+/* Header */
 header {
     background: #00d4a3;
     padding: 15px;
@@ -21,10 +22,26 @@ header {
     font-size: 18px;
 }
 
+/* Container */
 .container {
     padding: 20px;
 }
 
+/* Animated text */
+.animate-text {
+    animation: fadeSlide 2s ease-in-out;
+}
+
+@keyframes fadeSlide {
+    0% {opacity: 0; transform: translateY(-20px);}
+    100% {opacity: 1; transform: translateY(0);}
+}
+
+.subtitle {
+    opacity: 0.8;
+}
+
+/* Button */
 .btn {
     background: #25D366;
     color: white;
@@ -36,18 +53,29 @@ header {
     width: 80%;
 }
 
-.services {
-    margin-top: 20px;
+/* Glow */
+.glow {
+    box-shadow: 0 0 10px #25D366, 0 0 20px #25D366;
+    transition: 0.3s;
 }
 
+.glow:hover {
+    transform: scale(1.05);
+}
+
+/* Services */
 .service-box {
     background: #111;
     margin: 10px auto;
     padding: 15px;
     width: 80%;
     border-radius: 10px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.5s;
 }
 
+/* Inputs */
 input, select {
     width: 80%;
     padding: 12px;
@@ -56,6 +84,7 @@ input, select {
     border: none;
 }
 
+/* Order button */
 .order-btn {
     background: orange;
     color: white;
@@ -82,31 +111,25 @@ input, select {
 
 <body>
 
-<header>🚀 LOGAN DIGITAL SERVICES</header>
+<header>🚀 LOGAN DIGITAL STORE</header>
 
 <div class="container">
 
-<h1>Welcome to My Digital Store</h1>
-<p>Fast • Trusted • Affordable</p>
+<h1 class="animate-text">Welcome to Logan Digital Store</h1>
+<p class="subtitle">Fast • Trusted • Affordable</p>
 
-<!-- WhatsApp Button -->
 <a href="https://wa.me/231887935222" target="_blank">
-<button class="btn">💬 Chat on WhatsApp</button>
+<button class="btn glow">💬 Chat on WhatsApp</button>
 </a>
 
-<!-- Visitors -->
 <p>👀 Visitors: <span id="visitors">2</span></p>
 
-<!-- Services -->
-<div class="services">
-    <h2>Our Services</h2>
+<h2>Our Services</h2>
 
-    <div class="service-box">🔥 Free Fire Top-up</div>
-    <div class="service-box">💻 Website Creation</div>
-    <div class="service-box">📱 Social Media Boost</div>
-</div>
+<div class="service-box">🔥 Free Fire Top-up</div>
+<div class="service-box">💻 Website Creation</div>
+<div class="service-box">📱 Social Media Boost</div>
 
-<!-- Order Form -->
 <h2>🛒 Place Order</h2>
 
 <input type="text" id="name" placeholder="Your Name">
@@ -123,7 +146,6 @@ input, select {
 
 </div>
 
-<!-- Fake Popup -->
 <div class="popup" id="popup"></div>
 
 <script>
@@ -149,13 +171,27 @@ Service: ${service}`;
 
 // Visitor Counter
 let count = 2;
-
 setInterval(() => {
     count += Math.floor(Math.random() * 2) + 1;
     document.getElementById("visitors").innerText = count;
 }, 3000);
 
-// Fake Orders Popup
+// Scroll animation
+const boxes = document.querySelectorAll('.service-box');
+
+window.addEventListener('scroll', () => {
+    boxes.forEach(box => {
+        let position = box.getBoundingClientRect().top;
+        let screen = window.innerHeight;
+
+        if(position < screen - 50){
+            box.style.opacity = 1;
+            box.style.transform = "translateY(0)";
+        }
+    });
+});
+
+// Fake orders popup
 let names = ["John", "Mary", "David", "Samuel", "Blessing"];
 let services = ["Free Fire Top-up", "Website Creation", "Social Boost"];
 
