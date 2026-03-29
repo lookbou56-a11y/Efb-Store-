@@ -1,77 +1,122 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Logan Digital Services</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LOGAN DIGITAL SERVICES</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #000000, #002f2f);
-            color: white;
-            text-align: center;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg, #000000, #001f1f);
+    color: white;
+    text-align: center;
+}
 
-        .container {
-            padding: 80px 20px;
-        }
+/* FADE ANIMATION */
+.fade {
+    animation: fadeIn 1.5s ease-in;
+}
 
-        h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
 
-        p {
-            font-size: 16px;
-            color: #ccc;
-        }
+header {
+    padding: 20px;
+    background: #00ffcc;
+    color: black;
+    font-weight: bold;
+    font-size: 22px;
+}
 
-        .btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 15px 25px;
-            background: #25D366;
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
+section {
+    padding: 20px;
+}
 
-        .btn:hover {
-            background: #1ebe5d;
-        }
+button {
+    padding: 15px;
+    margin: 10px;
+    border: none;
+    background: #25D366;
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
 
-        .services {
-            margin-top: 50px;
-        }
+button:hover {
+    background: #1ebe5d;
+    transform: scale(1.1);
+}
 
-        .service {
-            margin: 10px 0;
-            font-size: 18px;
-        }
-    </style>
+.card {
+    background: #111;
+    margin: 10px auto;
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 300px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background: #222;
+}
+
+.trust {
+    margin-top: 20px;
+    color: #00ffcc;
+    font-size: 14px;
+}
+</style>
 </head>
 
 <body>
 
-<div class="container">
-    <h1>LOGAN DIGITAL SERVICES</h1>
-    <p>Fast & Reliable Online Services 💻🔥</p>
+<header class="fade">
+🚀 LOGAN DIGITAL SERVICES
+</header>
 
-    <a class="btn" href="https://wa.me/231887935222?text=Hello%20Logan%2C%20I%20need%20your%20service">
-        Chat Me on WhatsApp
-    </a>
+<section class="fade">
+<h2>Welcome to EFB Store</h2>
+<p>Your number one online service platform 💻🔥</p>
 
-    <div class="services">
-        <h2>My Services</h2>
-        <div class="service">✔ Website Creation</div>
-        <div class="service">✔ Graphic Design</div>
-        <div class="service">✔ Social Media Boost</div>
-        <div class="service">✔ Online Setup Help</div>
-    </div>
+<a href="https://wa.me/231887935222?text=Hello%20Logan%2C%20I%20need%20your%20service">
+<button>💬 Order on WhatsApp</button>
+</a>
+
+<div class="trust">
+<p>⭐ Trusted by many clients</p>
+<p>⚡ Fast delivery guaranteed</p>
+<p>💯 Affordable prices</p>
 </div>
+</section>
+
+<section class="fade">
+<h2>Our Services</h2>
+
+<div class="card">🔥 Free Fire Top-up</div>
+<div class="card">💻 Website Creation</div>
+<div class="card">📱 Social Media Boost</div>
+<div class="card">🎨 Flyer Design</div>
+
+</section>
+
+<section class="fade">
+<h2>Contact</h2>
+<p>📲 WhatsApp: +231887935222</p>
+</section>
+
+<!-- AUTO WHATSAPP POPUP -->
+<script>
+setTimeout(function(){
+    if(confirm("👋 Welcome! Do you need any service?\nClick OK to chat with Logan now.")) {
+        window.location.href = "https://wa.me/231887935222?text=Hello%20Logan%2C%20I%20need%20your%20service";
+    }
+}, 5000);
+</script>
 
 </body>
 </html>
